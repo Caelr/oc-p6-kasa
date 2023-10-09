@@ -12,6 +12,7 @@ export default function Home() {
         <ul>
           {housing.map((home) => (
             <li key={home.id}>
+              {' '}
               <Link to={home.id}>{home.title}</Link>{' '}
             </li>
           ))}
