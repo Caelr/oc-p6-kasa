@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { HousingContext } from '../layouts/Layout'
+import Error from './404'
 
 export default function House() {
   const { id } = useParams()
@@ -8,7 +9,7 @@ export default function House() {
   const house = housing.find((house) => house.id === id)
 
   if (!house) {
-    return <Navigate to="/404" />
+    return <Error />
   }
 
   return (

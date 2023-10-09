@@ -20,12 +20,8 @@ export const router = createBrowserRouter([
       {
         path: '/:id',
         element: <House />,
-        loader: ({ request: { signal } }) => {
-          return fetch('housing.json', { signal })
-        },
       },
-      { path: '*', element: <Navigate to="/404" /> },
-      { path: '/404', element: <Error /> },
+      { path: '*', element: <Error /> },
     ],
   },
 ])

@@ -1,0 +1,36 @@
+%link__wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+%link__line {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+
+
+%link__line--visible {
+  transform: scaleX(1);
+}
+
+%link {
+  @extend %link__wrapper;
+  display: inline-block;
+}
+
+%link--visible {
+  @extend %link__wrapper;
+  display: inline-block;
+
+  &:after {
+    @extend %link__line;
+    @extend %link__line--visible;
+  }
+}

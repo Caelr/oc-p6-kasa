@@ -1,0 +1,20 @@
+@import './base/reset';
+
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/vendors';
+@import './utils/responsive';
+
+@import './shared/descriptions';
+@import './shared/titles';
+@import './shared/links';
+
+
+@import './base/fonts';
+@import './base/base';
+
+@import './components/navigation';
+@import './components/footer';
+
+@import './pages/home';
+@import './pages/about';

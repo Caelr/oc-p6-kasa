@@ -1,0 +1,30 @@
+.navigation {
+  align-items: center;
+  color: $color-bittersweet;
+  display: flex;
+  font-size: 2.4rem;
+  justify-content: space-between;
+  margin-block-end: 5rem;
+  margin-inline: 10rem;
+  padding-block-start: 4.5rem;
+
+  &__link {
+    font-size: 0;
+
+    &__icon {
+      inline-size: 21rem;
+      block-size: 6.8rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 5.7rem;
+    pointer-events: auto;
+
+    & .active {
+      @extend %link--visible;
+    }
+  }
+
+}
