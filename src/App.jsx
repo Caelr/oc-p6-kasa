@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [homes, setHomes] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState()
+  useEffect(() => {
+    const controller = new AbortController()
+    setIsLoading(true)
+    setError(undefined)
+    fetch('housing.json', { signal: controller.signal })
+      .then((res) => {
+        if (res.status === 200) return res.json()
+        return Promise.reject(res)
+      })
+      .then((data) => setHomes(data))
+      .catch((e) => {
+        if (e?.name === 'AbortError') return
+        setError(e)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+    return () => {
+      controller.abort()
+    }
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Hello React</h1>
+      {isLoading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <ul>
+          {homes.map((home) => (
+            <li key={home.id}>{home.title}</li>
+          ))}
+        </ul>
+      )}
     </>
   )
 }
