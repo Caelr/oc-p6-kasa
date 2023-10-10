@@ -1,0 +1,47 @@
+.gallery {
+  background-color: $color-grey;
+  border-radius: $border-radius;
+  inline-size: 124rem;
+  margin-block-start: 4.3rem;
+  margin-inline: auto;
+  padding-block: 5.6rem;
+  padding-inline: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6rem;
+  row-gap: 5rem;
+  &__link {
+    &__media{
+      inline-size: 34rem;
+      block-size: 34rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: $border-radius-s;
+      &::after{
+        @extend %cover;
+        pointer-events: none;
+        content: '';
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%);
+        z-index: 1;
+      }
+      &__image{
+        @extend %cover;
+        object-fit: cover;
+        transition: transform 0.7s $ease-out-expo;
+        border-radius: $border-radius-s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      &__title {
+        position: absolute;
+        color: $color-white;
+        bottom: 2rem;
+        line-height: 1.2;
+        max-inline-size: 25rem;
+        left: 2rem;
+        z-index: 2;
+      }
+    }
+  }
+}
