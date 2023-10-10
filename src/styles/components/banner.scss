@@ -2,6 +2,9 @@
   display: grid;
   place-items: center;
   isolation: isolate;
+  @media (max-width: $phone) {
+    padding-inline: 2rem;
+  }
 
   & > * {
     grid-column: 1 / -1;
@@ -11,6 +14,11 @@
   &__title {
     @extend %title-48;
     color: $color-white;
+    @media (max-width: $phone) {
+      max-inline-size: 23.3rem;
+      justify-self: flex-start;
+      padding-left: 1.6rem;
+    }
   }
 
   &__media {
@@ -18,6 +26,10 @@
     inline-size: 124rem;
     position: relative;
     z-index: -1;
+    @media (max-width: $phone) {
+      inline-size: 33.5rem;
+      block-size: 11.1rem;
+    }
 
     &::after {
       @extend %cover;
