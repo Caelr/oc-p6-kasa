@@ -26,6 +26,12 @@
       position: relative;
       overflow: hidden;
       border-radius: $border-radius-s;
+      @media (max-width: $phone) {
+
+        inline-size: 33.5rem;
+        block-size: 33.5rem;
+
+      }
       &::after{
         @extend %cover;
         pointer-events: none;

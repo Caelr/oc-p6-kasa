@@ -7,6 +7,11 @@
   place-items: center;
   background-color: $color-black;
   color: $color-white;
+  @media (max-width: $phone) {
+    margin-block-start: 2.7rem;
+    padding-block-end: 6.6rem;
+    gap: 1rem;
+  }
 
   &__link {
     &__icon {
@@ -16,5 +21,10 @@
   }
   &__copy {
     @extend %description-24;
+    @media (max-width: $phone) {
+      max-inline-size: 13.35rem;
+      text-align: center;
+      line-height: 1.4;
+    }
   }
 }
