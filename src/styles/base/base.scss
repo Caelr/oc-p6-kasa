@@ -17,7 +17,7 @@ html {
 body {
   font-family: $font-montserrat;
   @extend %description-18;
-  max-inline-size: 1440px;
+  margin-inline: auto;
   @media(max-width: $phone) {
     max-inline-size: $phone;
   }
@@ -34,6 +34,7 @@ a {
 }
 
 button {
+  all: unset;
   border: none;
   background: none;
   color: inherit;
