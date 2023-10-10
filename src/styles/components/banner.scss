@@ -37,11 +37,17 @@
       background-color: $color-black;
       border-radius: $border-radius;
       opacity: 0.3;
+      @media (max-width: $phone) {
+        border-radius: $border-radius-s;
+      }
     }
     &__image {
       @extend %cover;
       border-radius: $border-radius;
       object-fit: cover;
+      @media (max-width: $phone) {
+        border-radius: $border-radius-s;
+      }
     }
   }
 }

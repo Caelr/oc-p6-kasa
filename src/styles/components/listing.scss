@@ -8,8 +8,17 @@
   padding-inline: 5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 6rem;
-  row-gap: 5rem;
+  gap: 5rem 6rem;
+
+  @media (max-width: $phone) {
+    background-color: transparent;
+    padding: 0;
+    grid-template-columns: 1fr;
+    inline-size: 33.5rem;
+    margin-block-start: 2.2rem;
+    gap: 2rem;
+  }
+
   &__link {
     &__media{
       inline-size: 34rem;
