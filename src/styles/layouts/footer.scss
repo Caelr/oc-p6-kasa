@@ -1,0 +1,20 @@
+.footer {
+  margin-block-start: 5rem;
+  padding-block-start: 6.6rem;
+  padding-block-end: 2.9rem;
+  display: grid;
+  gap: 2.8rem;
+  place-items: center;
+  background-color: $color-black;
+  color: $color-white;
+
+  &__link {
+    &__icon {
+      inline-size: 12.2rem;
+      block-size: 4rem;
+    }
+  }
+  &__copy {
+    @extend %description-24;
+  }
+}

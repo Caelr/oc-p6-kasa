@@ -8,18 +8,19 @@
 html {
   $vw: 100vw;
   font-size: calc($vw / 1440px * 10px);
-  position: fixed;
   line-height: 1;
-  overflow: hidden;
-
-  // @include media('<phone') {
-  //   font-size: calc($vw / 750px * 10px);
-  // }
+  @media(max-width: $phone) {
+    font-size: calc($vw / 375px * 10px);
+  }
 }
 
 body {
   font-family: $font-montserrat;
   @extend %description-18;
+  max-inline-size: 1440px;
+  @media(max-width: $phone) {
+    max-inline-size: 375px;
+  }
 }
 
 html, body, #root {
@@ -41,15 +42,5 @@ button {
 }
 
 img {
-  opacity: 0;
-  transition: opacity 0.4s ease;
   vertical-align: middle;
-
-  &.loaded {
-    opacity: 1;
-  }
-}
-
-#root {
-
 }

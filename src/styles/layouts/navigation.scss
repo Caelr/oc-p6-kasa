@@ -1,12 +1,18 @@
 .navigation {
+  @extend %description-24;
   align-items: center;
   color: $color-bittersweet;
   display: flex;
-  font-size: 2.4rem;
   justify-content: space-between;
   margin-block-end: 5rem;
   margin-inline: 10rem;
   padding-block-start: 4.5rem;
+
+  @media(max-width: $phone) {
+    margin-block-end: 2.7rem;
+    margin-block-start: 2rem;
+    margin-inline: 2rem;
+  }
 
   &__link {
     font-size: 0;
@@ -14,6 +20,10 @@
     &__icon {
       inline-size: 21rem;
       block-size: 6.8rem;
+      @media(max-width: $phone) {
+        inline-size: 14.5rem;
+        block-size: 4.68rem;
+      }
     }
   }
 
@@ -21,6 +31,9 @@
     display: flex;
     gap: 5.7rem;
     pointer-events: auto;
+    @media(max-width: $phone) {
+      gap: 2.6rem;
+    }
 
     & .active {
       @extend %link--visible;
