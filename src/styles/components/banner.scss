@@ -1,0 +1,35 @@
+.banner {
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+
+  & > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+
+  &__title {
+    @extend %title-48;
+    color: $color-white;
+  }
+
+  &__media {
+    block-size: 22.3rem;
+    inline-size: 124rem;
+    position: relative;
+    z-index: -1;
+
+    &::after {
+      @extend %cover;
+      content: '';
+      background-color: $color-black;
+      border-radius: 25px;
+      opacity: 0.3;
+    }
+    &__image {
+      @extend %cover;
+      border-radius: 25px;
+      object-fit: cover;
+    }
+  }
+}
