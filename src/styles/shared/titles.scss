@@ -10,3 +10,9 @@
     font-size: 2.4rem;
   }
 }
+%title-288 {
+  font-size: 28.8rem;
+  @media (max-width: $phone) {
+    font-size: 9.6rem;
+  }
+}

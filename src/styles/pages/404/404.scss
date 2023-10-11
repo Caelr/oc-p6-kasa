@@ -1,9 +1,35 @@
 .error {
   display: grid;
+  margin-block: 13.9rem;
   place-items: center;
   gap: 13.9rem;
   color: $color-bittersweet;
+
+  @media (max-width: $phone) {
+    gap: 11.3rem;
+    margin-block: 11.3rem;
+  }
+
   &__title {
-    @extend %title-288
+    @extend %title-288;
+  }
+
+  &__description {
+    @extend %title-36;
+    text-align: center;
+    @media (max-width: $phone) {
+      max-inline-size: 26rem;
+    }
+  }
+
+  &__link {
+    @extend %link--visible;
+  }
+}
+
+.mobile__br {
+  display: none;
+  @media (max-width: $phone) {
+    display: inline; /* Display the <br> element as inline on mobile */
   }
 }
