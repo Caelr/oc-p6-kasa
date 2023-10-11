@@ -6,13 +6,15 @@
       block-size: 41.5rem;
       inline-size: 124rem;
       position: relative;
+      flex: 0 0 100%;
       @media (max-width: $phone) {
         inline-size: 33.5rem;
         block-size: 25.5rem;
       }
       &__image {
-        border-radius: $border-radius;
         @extend %cover;
+        transition: translate 0.3s ease-in-out;
+        border-radius: $border-radius;
         object-fit: cover;
         @media (max-width: $phone) {
           border-radius: $border-radius-s;
@@ -53,6 +55,18 @@
 
       @media (max-width: $phone) {
         display: none;
+      }
+    }
+
+    &__gallery {
+      inline-size: 124rem;
+      block-size: 41.5rem;
+      overflow: hidden;
+      display: flex;
+      position: relative;
+      @media (max-width: $phone) {
+        inline-size: 33.5rem;
+        block-size: 25.5rem;
       }
     }
   }

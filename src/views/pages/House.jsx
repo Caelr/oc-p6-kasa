@@ -4,7 +4,6 @@ import Collapse from '../components/Collapse'
 import Rating from '../components/Rating'
 import { HousingContext } from '../layouts/Layout'
 import Error from './404'
-import { useEffect } from 'react'
 
 export default function House() {
   const { id } = useParams()
@@ -12,27 +11,6 @@ export default function House() {
   const house = housing.find((house) => house.id === id)
 
   const [imageIndex, setImageIndex] = useState(0)
-  const [loadedImages, setLoadedImages] = useState([])
-
-  useEffect(() => {
-    const preloadImages = () => {
-      const imagesToLoad = house.pictures.map(imageUrl => {
-        const img = new Image()
-        img.src = imageUrl
-        return img
-      })
-
-      Promise.all(imagesToLoad.map(image => image.decode())).then(() => {
-        setLoadedImages(imagesToLoad)
-      })
-    }
-
-    if (house) {
-      preloadImages()
-    } else {
-
-    }
-  }, [])
 
   if (!house) {
     return <Error />
@@ -50,13 +28,18 @@ export default function House() {
   return (
     <main className="house">
       <section className="house__slider">
-        <figure className="house__slider__media">
-          <img
-            src={house.pictures[imageIndex]}
-            alt={house.title}
-            className="house__slider__media__image"
-          />
-        </figure>
+        <div className="house__slider__gallery">
+          {house.pictures.map((imageUrl) => (
+            <figure className="house__slider__media" key={imageUrl}>
+              <img
+                src={imageUrl}
+                alt={house.title}
+                className="house__slider__media__image"
+                style={{ translate: `${-100 * imageIndex}%` }}
+              />
+            </figure>
+          ))}
+        </div>
         <button onClick={showPreviousImage} className="house__slider__button">
           <svg
             className="house__slider__button__icon"
