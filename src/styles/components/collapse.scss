@@ -1,20 +1,15 @@
 .menu {
-  background-color: $color-grey-2;
-  inline-size: 58.2rem;
-  border-radius: $border-radius-s;
-
-  @media (max-width: $phone) {
-    inline-size: 33.5rem;
-  }
-}
-.details {
-  overflow: hidden;
-  margin-block-start: 2.4rem;
-
+  block-size: 100%;
   @media (max-width: $phone) {
     margin-block-start: 1.3rem;
   }
+  background-color: $color-grey-2;
 
+  border-radius: $border-radius-s;
+}
+.details {
+  overflow: hidden;
+  max-inline-size: 102.3rem;
   &__title {
     display: flex;
     align-items: center;
@@ -47,9 +42,9 @@
 
   &__content {
     line-height: 1.4;
-    inline-size: 56.2rem;
+    max-inline-size: 100.3rem;
     font-weight: normal;
-
+    color: $color-bittersweet;
     @media (max-width: $phone) {
       inline-size: 31.5rem;
     }
@@ -76,4 +71,5 @@
     transition: max-height 0.4s ease-out , padding 0.1s ease-out;
     padding: 2rem 0 2rem 2rem;
   }
+
 }
