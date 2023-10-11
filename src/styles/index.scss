@@ -19,7 +19,12 @@
 
 @import './components/banner';
 @import './components/listing';
+@import './components/rating';
+// @import './components/menuCollapse';
+@import './components/collapse';
 
-@import './pages/home';
-@import './pages/about';
-@import './pages/house';
+@import './pages/home/home';
+@import './pages/about/about';
+@import './pages/house/house';
+@import './pages/house/slider';
+@import './pages/house/detail';

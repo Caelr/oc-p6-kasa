@@ -1,7 +1,14 @@
 @font-face {
   font-family: $font-montserrat;
+  src: url('../assets/fonts/montserrat-r.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-r.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font-montserrat;
   src: url('../assets/fonts/montserrat.woff2') format('woff2'),
     url('../assets/fonts/montserrat.woff') format('woff');
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
 }

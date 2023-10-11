@@ -1,0 +1,9 @@
+.error {
+  display: grid;
+  place-items: center;
+  gap: 13.9rem;
+  color: $color-bittersweet;
+  &__title {
+    @extend %title-288
+  }
+}

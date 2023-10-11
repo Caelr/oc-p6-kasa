@@ -2,7 +2,7 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  user-select: none
+  // user-select: none
 }
 
 html {
@@ -16,6 +16,7 @@ html {
 
 body {
   font-family: $font-montserrat;
+  font-weight: 500;
   @extend %description-18;
   margin-inline: auto;
   @media(max-width: $phone) {

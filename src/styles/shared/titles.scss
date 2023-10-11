@@ -1,3 +1,9 @@
+%title-36 {
+  font-size: 3.6rem;
+  @media (max-width: $phone) {
+    font-size: 1.8rem;
+  }
+}
 %title-48 {
   font-size: 4.8rem;
   @media (max-width: $phone) {

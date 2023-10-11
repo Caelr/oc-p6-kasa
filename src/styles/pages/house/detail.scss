@@ -1,0 +1,76 @@
+.house {
+  &__detail {
+    color: $color-bittersweet;
+    display: flex;
+    justify-content: space-between;
+    margin-block-start: 2.5rem;
+
+    @media (max-width: $phone) {
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    &__title {
+      @extend %title-36;
+      margin-block-end: 1rem;
+    }
+
+    &__tag__wrapper {
+      margin-block-start: 2rem;
+      display: flex;
+      gap: 1rem;
+      @media (max-width: $phone) {
+        flex-wrap: wrap;
+      }
+    }
+
+    &__tag {
+      @extend %description-14;
+      background-color: $color-bittersweet;
+      color: $color-white;
+      padding-inline: 3rem;
+      padding-block: 0.4rem;
+      border-radius: $border-radius-s;
+    }
+
+    &__aside {
+      display: grid;
+      place-items: flex-end;
+      gap: 1rem;
+      align-items: center;
+      @media (max-width: $phone) {
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center start ;
+      }
+    }
+
+    &__host__wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      @media (max-width: $phone) {
+        grid-area: 1 / 2;
+        justify-self: flex-end;
+      }
+    }
+
+    &__host {
+      max-inline-size: 9rem;
+      text-align: right;
+    }
+    &__media {
+      inline-size: 6.4rem;
+      block-size: 6.4rem;
+      position: relative;
+      @media (max-width: $phone) {
+        inline-size: 3.2rem;
+        block-size: 3.2rem;
+      }
+      &__image {
+        @extend %cover;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+}

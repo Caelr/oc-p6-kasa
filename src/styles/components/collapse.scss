@@ -1,0 +1,79 @@
+.menu {
+  background-color: $color-grey-2;
+  inline-size: 58.2rem;
+  border-radius: $border-radius-s;
+
+  @media (max-width: $phone) {
+    inline-size: 33.5rem;
+  }
+}
+.details {
+  overflow: hidden;
+  margin-block-start: 2.4rem;
+
+  @media (max-width: $phone) {
+    margin-block-start: 1.3rem;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    padding-inline-start: 1rem;
+    border-radius: $border-radius-s;
+    block-size: 5.2rem;
+    background-color: $color-bittersweet;
+    color: $color-white;
+    cursor: pointer;
+    position: relative;
+
+    @media (max-width: $phone) {
+      block-size: 3rem;
+    }
+
+    &::after {
+      content: url('/arrow.svg');
+      position: absolute;
+      top: 50%;
+      right: 1.9rem;
+      inline-size: 2.4rem;
+      translate: 0 -50%;
+      transition: rotate 0.2s ease-out;
+      transform-origin: 50% 50%;
+      @media (max-width: $phone) {
+        inline-size: 1.6rem;
+      }
+    }
+  }
+
+  &__content {
+    line-height: 1.4;
+    inline-size: 56.2rem;
+    font-weight: normal;
+
+    @media (max-width: $phone) {
+      inline-size: 31.5rem;
+    }
+
+    :is(.details__content__description, .details__content__list) {
+      padding: 0 0 0 1rem;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-in;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+
+  }
+
+  &[open] &__title::after {
+    rotate: -180deg;
+    transition: rotate 200ms ease-out;
+  }
+
+  &[open]
+    + div.details__content
+    :is(.details__content__description, .details__content__list) {
+    max-height: 27rem;
+    transition: max-height 0.4s ease-out , padding 0.1s ease-out;
+    padding: 2rem 0 2rem 2rem;
+  }
+}

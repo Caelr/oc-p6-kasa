@@ -1,15 +1,10 @@
 .house {
-  inline-size: 124rem;
-  margin-inline: auto;
-  @media (max-width: $phone) {
-    inline-size: 33.5rem;
-  }
   &__slider {
     margin-inline: auto;
     position: relative;
     &__media {
-      inline-size: 124rem;
       block-size: 41.5rem;
+      inline-size: 124rem;
       position: relative;
       @media (max-width: $phone) {
         inline-size: 33.5rem;
@@ -26,8 +21,8 @@
     }
 
     &__button {
-      inline-size: 4.66rem;
       block-size: 7.92rem;
+      inline-size: 4.66rem;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -50,11 +45,11 @@
     }
 
     &__counter {
-      position: absolute;
       bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
       color: $color-white;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
 
       @media (max-width: $phone) {
         display: none;

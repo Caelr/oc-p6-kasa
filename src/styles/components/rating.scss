@@ -1,0 +1,16 @@
+.rating {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: $phone) {
+    gap: 0.4rem;
+    .empty-star {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+    .red-star {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+  }
+}

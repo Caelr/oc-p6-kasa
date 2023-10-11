@@ -1,13 +1,17 @@
 import { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import MenuCollapse from '../components/MenuCollapse'
+import Rating from '../components/Rating'
 import { HousingContext } from '../layouts/Layout'
 import Error from './404'
+import Collapse from '../components/Collapse'
 
 export default function House() {
   const { id } = useParams()
   const { housing } = useContext(HousingContext)
   const house = housing.find((house) => house.id === id)
   console.log(house)
+
   const [imageIndex, setImageIndex] = useState(0)
 
   if (!house) {
@@ -72,21 +76,31 @@ export default function House() {
         <div className="house__detail__info">
           <h1 className="house__detail__title">{house.title}</h1>
           <p className="house__detail__location">{house.location}</p>
-          {house.tags.map((tag) => (
-            <p className="house__detail__tag">{tag}</p>
-          ))}
+          <div className="house__detail__tag__wrapper">
+            {house.tags.map((tag, index) => (
+              <p className="house__detail__tag" key={index}>
+                {tag}
+              </p>
+            ))}
+          </div>
         </div>
         <aside className="house__detail__aside">
-          <p className="house__detail__host">{house.host.name}</p>
-          <figure className="house__detail__media">
-            <img
-              src={house.host.picture}
-              alt={house.host.name}
-              className="house__detail__media__image"
-            />
-          </figure>
+          <div className="house__detail__host__wrapper">
+            <p className="house__detail__host">{house.host.name}</p>
+            <figure className="house__detail__media">
+              <img
+                src={house.host.picture}
+                alt={house.host.name}
+                className="house__detail__media__image"
+              />
+            </figure>
+          </div>
+          <Rating rating={+house.rating} />
         </aside>
       </section>
+      {/* <MenuCollapse title="Description" description={house.description} /> */}
+      <Collapse title="Description" description={house.description} />
+      <Collapse title="Équipements" list={house.equipments} />
     </main>
   )
 }
