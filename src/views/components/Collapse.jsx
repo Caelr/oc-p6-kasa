@@ -1,4 +1,7 @@
+import { useState } from "react"
+
 export default function Collapse({ title, description, list }) {
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="menu">
 
