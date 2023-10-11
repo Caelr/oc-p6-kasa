@@ -4,30 +4,32 @@ import Collapse from '../components/Collapse'
 import Rating from '../components/Rating'
 import { HousingContext } from '../layouts/Layout'
 import Error from './404'
+import Slider from '../components/Slider'
 
 export default function House() {
   const { id } = useParams()
   const { housing } = useContext(HousingContext)
   const house = housing.find((house) => house.id === id)
 
-  const [imageIndex, setImageIndex] = useState(0)
+  // const [imageIndex, setImageIndex] = useState(0)
 
   if (!house) {
     return <Error />
   }
 
-  const showNextImage = () => {
-    setImageIndex((index) => (index + 1) % house.pictures.length)
-  }
-  const showPreviousImage = () => {
-    setImageIndex(
-      (index) => (index - 1 + house.pictures.length) % house.pictures.length
-    )
-  }
+  // const showNextImage = () => {
+  //   setImageIndex((index) => (index + 1) % house.pictures.length)
+  // }
+  // const showPreviousImage = () => {
+  //   setImageIndex(
+  //     (index) => (index - 1 + house.pictures.length) % house.pictures.length
+  //   )
+  // }
 
   return (
     <main className="house">
-      <section className="house__slider">
+      <Slider images={house.pictures} title={house.title} />
+      {/* <section className="house__slider">
         <div className="house__slider__gallery">
           {house.pictures.map((imageUrl) => (
             <figure className="house__slider__media" key={imageUrl}>
@@ -74,7 +76,7 @@ export default function House() {
         <p className="house__slider__counter">
           {imageIndex + 1}/{house.pictures.length}
         </p>
-      </section>
+      </section> */}
       <section className="house__detail">
         <div className="house__detail__info">
           <h1 className="house__detail__title">{house.title}</h1>

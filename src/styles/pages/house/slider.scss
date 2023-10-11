@@ -13,7 +13,7 @@
       }
       &__image {
         @extend %cover;
-        transition: translate 0.3s ease-in-out;
+        transition: translate 0.3s ease;
         border-radius: $border-radius;
         object-fit: cover;
         @media (max-width: $phone) {
