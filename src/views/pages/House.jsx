@@ -1,18 +1,38 @@
 import { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import MenuCollapse from '../components/MenuCollapse'
+import Collapse from '../components/Collapse'
 import Rating from '../components/Rating'
 import { HousingContext } from '../layouts/Layout'
 import Error from './404'
-import Collapse from '../components/Collapse'
+import { useEffect } from 'react'
 
 export default function House() {
   const { id } = useParams()
   const { housing } = useContext(HousingContext)
   const house = housing.find((house) => house.id === id)
-  console.log(house)
 
   const [imageIndex, setImageIndex] = useState(0)
+  const [loadedImages, setLoadedImages] = useState([])
+
+  useEffect(() => {
+    const preloadImages = () => {
+      const imagesToLoad = house.pictures.map(imageUrl => {
+        const img = new Image()
+        img.src = imageUrl
+        return img
+      })
+
+      Promise.all(imagesToLoad.map(image => image.decode())).then(() => {
+        setLoadedImages(imagesToLoad)
+      })
+    }
+
+    if (house) {
+      preloadImages()
+    } else {
+
+    }
+  }, [])
 
   if (!house) {
     return <Error />
@@ -98,9 +118,10 @@ export default function House() {
           <Rating rating={+house.rating} />
         </aside>
       </section>
-      {/* <MenuCollapse title="Description" description={house.description} /> */}
-      <Collapse title="Description" description={house.description} />
-      <Collapse title="Équipements" list={house.equipments} />
+      <section className="house__collapse">
+        <Collapse title="Description" description={house.description} />
+        <Collapse title="Équipements" list={house.equipments} />
+      </section>
     </main>
   )
 }
