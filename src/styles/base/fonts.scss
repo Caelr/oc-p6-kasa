@@ -12,3 +12,11 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: $font-montserrat;
+  src: url('../assets/fonts/montserrat-b.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-b.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
