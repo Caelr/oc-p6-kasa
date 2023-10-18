@@ -55,20 +55,18 @@
       max-height: 0;
       overflow: hidden;
     }
-
-
   }
 
   &[open] &__title::after {
     rotate: -180deg;
-    transition: rotate 200ms ease-out;
+    transition: rotate 0.2s ease-out;
   }
 
   &[open]
     + div.details__content
     :is(.details__content__description, .details__content__list) {
     max-height: 27rem;
-    transition: max-height 0.4s ease-out , padding 0.1s ease-out;
+    transition: max-height 0.4s ease-out , padding 0.4s ease-out;
     padding: 2rem 0 2rem 2rem;
   }
 
