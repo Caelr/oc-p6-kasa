@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { HousingContext } from '../layouts/Layout'
+import { HousingContext } from '../../App'
 
 export default function Listing() {
   const { housing, isLoading } = useContext(HousingContext)

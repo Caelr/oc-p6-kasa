@@ -3,15 +3,13 @@ import { useParams } from 'react-router-dom'
 import Collapse from '../components/Collapse'
 import Rating from '../components/Rating'
 import Slider from '../components/Slider'
-import { HousingContext } from '../layouts/Layout'
+import { HousingContext } from '../../App'
 import Error from './404'
 
 export default function House() {
   const { id } = useParams()
   const { housing } = useContext(HousingContext)
   const house = housing.find((house) => house.id === id)
-
-  // const [imageIndex, setImageIndex] = useState(0)
 
   if (!house) {
     return <Error />
