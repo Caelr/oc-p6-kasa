@@ -1,12 +1,10 @@
-import { useState } from "react"
-
 export default function Collapse({ title, description, list }) {
-  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="menu">
-
-    <details className="details" name="accordion">
-      <summary className="details__title"><span>{title}</span></summary>
+      <details className="details" name="accordion">
+        <summary className="details__title">
+          <span>{title}</span>
+        </summary>
       </details>
       <div className="details__content">
         {description && (
@@ -22,6 +20,6 @@ export default function Collapse({ title, description, list }) {
           </ul>
         )}
       </div>
-      </div>
+    </div>
   )
 }
