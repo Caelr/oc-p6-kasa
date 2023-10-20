@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { HousingContext } from '../../App'
 import Collapse from '../components/Collapse'
 import Rating from '../components/Rating'
 import Slider from '../components/Slider'
-import { HousingContext } from '../../App'
 import Error from './404'
 
 export default function House() {
@@ -11,11 +11,9 @@ export default function House() {
   const { housing } = useContext(HousingContext)
   const house = housing.find((house) => house.id === id)
 
-  if (!house) {
-    return <Error />
-  }
-
-  return (
+  return !house ? (
+    <Error />
+  ) : (
     <main className="house">
       <Slider images={house.pictures} title={house.title} />
       <section className="house__detail">
