@@ -8,6 +8,7 @@ export default function About() {
   const [data, setData] = useState([])
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     setIsLoading(true)
     const controller = new AbortController()
@@ -24,7 +25,11 @@ export default function About() {
       .finally(() => {
         setIsLoading(false)
       })
-  })
+
+    return () => {
+      controller.abort()
+    }
+  }, [])
   return (
     <main className="about">
       <Banner image={image} />
