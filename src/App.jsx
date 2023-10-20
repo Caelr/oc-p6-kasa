@@ -8,11 +8,11 @@ export const HousingContext = createContext()
 export default function App() {
   const [housing, setHousing] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState()
+  // const [error, setError] = useState()
 
   useEffect(() => {
     const controller = new AbortController()
-    setError(undefined)
+    // setError(undefined)
     setIsLoading(true)
     fetch('/housing.json', { signal: controller.signal })
       .then((response) => {
