@@ -1,7 +1,6 @@
 .house {
   inline-size: 124rem;
   margin-inline: auto;
-
   @media (max-width: $phone) {
     inline-size: 33.5rem;
   }

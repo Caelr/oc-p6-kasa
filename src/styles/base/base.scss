@@ -46,3 +46,8 @@ button {
 img {
   vertical-align: middle;
 }
+
+#root {
+  min-block-size: 100vh;
+  display: grid;
+}

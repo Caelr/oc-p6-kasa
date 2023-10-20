@@ -1,4 +1,5 @@
 .about {
+
   &__collapse {
     display: flex;
     flex-direction: column;
@@ -9,6 +10,7 @@
     margin-inline: auto;
     @media (max-width: $phone) {
       inline-size: 33.5rem;
+
       gap: 0;
     }
   }
